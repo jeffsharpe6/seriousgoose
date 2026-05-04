@@ -535,6 +535,49 @@
         color: #c8d2d8;
       }
 
+      .source-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .source-frame {
+        position: relative;
+        min-height: 24rem;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        background: var(--panel);
+        box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.35);
+      }
+
+      .source-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .source-frame::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: linear-gradient(0deg, rgba(5, 7, 10, 0.9), transparent 42%);
+        pointer-events: none;
+      }
+
+      .source-frame figcaption {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 1;
+        color: var(--steel);
+        font-size: 0.82rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
       .trust-row {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -591,6 +634,7 @@
         }
 
         .category-grid,
+        .source-gallery,
         .trust-row {
           grid-template-columns: 1fr;
         }
@@ -626,7 +670,8 @@
         }
 
         .hero-media,
-        .feature-photo {
+        .feature-photo,
+        .source-frame {
           min-height: 22rem;
         }
       }
@@ -798,6 +843,16 @@
               </p>
               <a class="ghost-button" href="#access">View Access Policy</a>
             </div>
+          </div>
+          <div class="source-gallery" aria-label="Original Serious Goose brand imagery">
+            <figure class="source-frame">
+              <img src="assets/serious-goose/seriousgoose-original.png" alt="Original Serious Goose standing in a foggy nighttime forest" />
+              <figcaption>Original night-watch portrait</figcaption>
+            </figure>
+            <figure class="source-frame">
+              <img src="assets/serious-goose/seriousgoosepatrol-original.png" alt="Original Serious Goose patrol image in a dark forest" />
+              <figcaption>Patrol profile source image</figcaption>
+            </figure>
           </div>
         </section>
 
