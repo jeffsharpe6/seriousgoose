@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Serious Goose | Tactical Goods & Field Merch</title>
+    <meta
+      name="description"
+      content="Serious Goose ecommerce mockup for tactical-inspired apparel, mugs, stickers, notebooks, phone skins, and field-ready goods."
+    />
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/serious-goose/favicon.png" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #05070a;
+        --panel: #0b1015;
+        --panel-2: #111820;
+        --line: rgba(177, 195, 207, 0.18);
+        --text: #eef3f6;
+        --muted: #9dabb5;
+        --dim: #64727c;
+        --steel: #b7c6ce;
+        --blue: #122134;
+        --green: #8bb89a;
+        --rust: #a96f59;
+        --shadow: rgba(0, 0, 0, 0.56);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background:
+          linear-gradient(180deg, rgba(5, 7, 10, 0.82), rgba(5, 7, 10, 0.96)),
+          url("assets/serious-goose/section-background-fog-forest.png") center top / cover fixed,
+          var(--ink);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-shell {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 18% 7%, rgba(32, 59, 84, 0.5), transparent 30rem),
+          radial-gradient(circle at 82% 14%, rgba(139, 184, 154, 0.13), transparent 24rem),
+          linear-gradient(180deg, rgba(4, 6, 9, 0.3), #05070a 72%);
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem clamp(1rem, 4vw, 4rem);
+        border-bottom: 1px solid var(--line);
+        background: rgba(5, 7, 10, 0.76);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 2.35rem;
+        height: 2.35rem;
+        place-items: center;
+        border: 1px solid rgba(238, 243, 246, 0.28);
+        border-radius: 0.35rem;
+        background: linear-gradient(145deg, rgba(19, 28, 38, 0.92), rgba(8, 11, 15, 0.92));
+        color: var(--steel);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .brand-text {
+        display: grid;
+      }
+
+      .brand-name {
+        font-size: 0.96rem;
+        font-weight: 850;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .brand-sub {
+        color: var(--dim);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.65rem, 2vw, 1.4rem);
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 750;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .button,
+      .ghost-button {
+        display: inline-flex;
+        min-height: 2.6rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        border-radius: 0.4rem;
+        padding: 0.72rem 1rem;
+        font-size: 0.84rem;
+        font-weight: 800;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .button {
+        border: 1px solid rgba(238, 243, 246, 0.22);
+        background: linear-gradient(180deg, #e6edf1, #aab7bd);
+        color: #081017;
+        box-shadow: 0 0.8rem 2.2rem rgba(183, 198, 206, 0.14);
+      }
+
+      .ghost-button {
+        border: 1px solid var(--line);
+        background: rgba(238, 243, 246, 0.055);
+        color: var(--text);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(21rem, 1.05fr);
+        gap: clamp(2rem, 4vw, 4.5rem);
+        align-items: end;
+        min-height: min(50rem, calc(100vh - 4.6rem));
+        padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 4vw, 4rem) 2.5rem;
+      }
+
+      .hero-copy {
+        max-width: 42rem;
+        padding-bottom: clamp(1rem, 5vh, 4rem);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1.2rem;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 2.5rem;
+        height: 1px;
+        background: currentColor;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(4rem, 11vw, 8.8rem);
+        font-weight: 900;
+        line-height: 0.88;
+        text-transform: uppercase;
+      }
+
+      .hero-copy p {
+        max-width: 38rem;
+        margin-top: 1.4rem;
+        color: #c8d2d8;
+        font-size: clamp(1rem, 1.5vw, 1.16rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.8rem;
+      }
+
+      .hero-media {
+        position: relative;
+        align-self: stretch;
+        min-height: 30rem;
+        overflow: hidden;
+        border: 1px solid rgba(238, 243, 246, 0.14);
+        border-radius: 0.5rem;
+        background: #05070a;
+        box-shadow: 0 2rem 5rem var(--shadow);
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-media::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(5, 7, 10, 0.36), transparent 45%),
+          linear-gradient(0deg, rgba(5, 7, 10, 0.82), transparent 35%);
+        pointer-events: none;
+      }
+
+      .hero-status {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 1;
+        display: grid;
+        gap: 0.16rem;
+        max-width: 17rem;
+        padding: 0.9rem;
+        border: 1px solid rgba(238, 243, 246, 0.16);
+        border-radius: 0.4rem;
+        background: rgba(6, 10, 14, 0.78);
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-status strong {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      .hero-status span {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .section {
+        padding: clamp(3rem, 7vw, 6.5rem) clamp(1rem, 4vw, 4rem);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.8rem, 4vw, 3.25rem);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .section-header p {
+        max-width: 32rem;
+        color: var(--muted);
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .category-tile {
+        position: relative;
+        min-height: 18rem;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        background: var(--panel);
+      }
+
+      .category-tile img {
+        width: 100%;
+        height: 100%;
+        min-height: 18rem;
+        object-fit: cover;
+        opacity: 0.78;
+        transition: transform 260ms ease, opacity 260ms ease;
+      }
+
+      .category-tile:hover img {
+        transform: scale(1.035);
+        opacity: 0.94;
+      }
+
+      .tile-copy {
+        position: absolute;
+        inset: auto 0 0;
+        padding: 1rem;
+        background: linear-gradient(0deg, rgba(5, 7, 10, 0.94), transparent);
+      }
+
+      .tile-copy h3 {
+        font-size: 1.15rem;
+        text-transform: uppercase;
+      }
+
+      .tile-copy span {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .shop-band {
+        background:
+          linear-gradient(180deg, rgba(13, 19, 26, 0.94), rgba(5, 7, 10, 0.98)),
+          url("assets/serious-goose/section-background-fog-forest.png") center / cover;
+        border-block: 1px solid var(--line);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .product-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        background: rgba(9, 13, 18, 0.92);
+      }
+
+      .product-art {
+        display: grid;
+        min-height: 13rem;
+        place-items: center;
+        padding: 1.4rem;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(71, 95, 114, 0.34), transparent 62%),
+          linear-gradient(145deg, #151d25, #05070a);
+      }
+
+      .mock-product {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: min(100%, 11.5rem);
+        aspect-ratio: 1;
+        border: 1px solid rgba(238, 243, 246, 0.16);
+        background: linear-gradient(160deg, #202a32, #080b0f 72%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1.2rem 2rem rgba(0, 0, 0, 0.38);
+        color: rgba(238, 243, 246, 0.82);
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .mock-product::before {
+        content: "SG";
+        display: grid;
+        width: 3.4rem;
+        height: 3.4rem;
+        place-items: center;
+        border: 1px solid rgba(238, 243, 246, 0.3);
+        border-radius: 0.35rem;
+        background: rgba(5, 7, 10, 0.52);
+      }
+
+      .mock-product.shirt {
+        clip-path: polygon(22% 8%, 38% 0, 45% 10%, 55% 10%, 62% 0, 78% 8%, 96% 28%, 83% 42%, 78% 34%, 78% 100%, 22% 100%, 22% 34%, 17% 42%, 4% 28%);
+      }
+
+      .mock-product.mug {
+        width: min(100%, 9.5rem);
+        aspect-ratio: 0.82;
+        border-radius: 0.5rem 0.5rem 1.2rem 1.2rem;
+      }
+
+      .mock-product.mug::after {
+        position: absolute;
+        right: -2rem;
+        top: 27%;
+        width: 2.4rem;
+        height: 3.2rem;
+        border: 0.75rem solid rgba(137, 154, 166, 0.8);
+        border-left: 0;
+        border-radius: 0 1.6rem 1.6rem 0;
+        content: "";
+      }
+
+      .mock-product.sticker {
+        border-radius: 50%;
+        background: radial-gradient(circle, #dce5e9, #7e8a91);
+        color: #071018;
+      }
+
+      .mock-product.notebook {
+        width: min(100%, 8.8rem);
+        aspect-ratio: 0.72;
+        border-radius: 0.32rem;
+      }
+
+      .mock-product.notebook::after {
+        position: absolute;
+        left: 0.75rem;
+        top: 0.55rem;
+        bottom: 0.55rem;
+        width: 1px;
+        background: rgba(238, 243, 246, 0.2);
+        content: "";
+      }
+
+      .mock-product.phone {
+        width: min(100%, 7rem);
+        aspect-ratio: 0.48;
+        border-radius: 1.1rem;
+      }
+
+      .mock-product.hoodie {
+        clip-path: polygon(30% 9%, 39% 0, 61% 0, 70% 9%, 95% 30%, 83% 48%, 75% 40%, 75% 100%, 25% 100%, 25% 40%, 17% 48%, 5% 30%);
+      }
+
+      .product-info {
+        display: grid;
+        gap: 0.65rem;
+        padding: 1rem;
+      }
+
+      .product-info h3 {
+        font-size: 1rem;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .price {
+        color: var(--text);
+        font-weight: 850;
+      }
+
+      .mini-button {
+        min-height: 2.25rem;
+        border: 1px solid rgba(238, 243, 246, 0.2);
+        border-radius: 0.34rem;
+        background: rgba(238, 243, 246, 0.06);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .feature-split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 1rem;
+        align-items: stretch;
+      }
+
+      .feature-photo {
+        min-height: 31rem;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 0.5rem;
+        background: var(--panel);
+      }
+
+      .feature-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .feature-copy {
+        display: grid;
+        align-content: center;
+        gap: 1.1rem;
+        padding: clamp(1rem, 4vw, 3rem);
+        border-block: 1px solid var(--line);
+        background: linear-gradient(90deg, rgba(12, 18, 24, 0.78), rgba(9, 12, 16, 0.2));
+      }
+
+      .feature-copy h2 {
+        max-width: 11ch;
+        font-size: clamp(2.2rem, 6vw, 5rem);
+        line-height: 0.94;
+        text-transform: uppercase;
+      }
+
+      .feature-copy p {
+        max-width: 39rem;
+        color: #c8d2d8;
+      }
+
+      .trust-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .trust-item {
+        min-height: 10rem;
+        padding: 1rem;
+        border-top: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(238, 243, 246, 0.055), rgba(238, 243, 246, 0.015));
+      }
+
+      .trust-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .trust-item p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 2rem clamp(1rem, 4vw, 4rem);
+        border-top: 1px solid var(--line);
+        color: var(--dim);
+        background: rgba(3, 5, 7, 0.92);
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero,
+        .feature-split {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-copy {
+          padding-bottom: 0;
+        }
+
+        .hero-media {
+          min-height: 27rem;
+        }
+
+        .category-grid,
+        .trust-row {
+          grid-template-columns: 1fr;
+        }
+
+        .product-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav {
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .nav-actions .ghost-button {
+          display: none;
+        }
+
+        h1 {
+          font-size: clamp(3.1rem, 17vw, 5.3rem);
+        }
+
+        .section-header {
+          display: grid;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media,
+        .feature-photo {
+          min-height: 22rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#">
+          <span class="brand-mark">SG</span>
+          <span class="brand-text">
+            <span class="brand-name">Serious Goose</span>
+            <span class="brand-sub">Field Merch Supply</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Store sections">
+          <a href="#apparel">Apparel</a>
+          <a href="#goods">Goods</a>
+          <a href="#story">Story</a>
+          <a href="#access">Access</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="ghost-button" href="#access">Member Access</a>
+          <a class="button" href="#apparel">Shop Drop</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <span class="eyebrow">Night-run goods for off-duty operators</span>
+            <h1 id="hero-title">Serious Goose</h1>
+            <p>
+              Tactical-inspired apparel, drinkware, decals, notebooks, device skins, and field
+              desk essentials built around a darker kind of mascot energy.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#apparel">Shop Best Sellers</a>
+              <a class="ghost-button" href="#goods">Browse Goods</a>
+            </div>
+          </div>
+          <figure class="hero-media" aria-label="Serious Goose night patrol hero image">
+            <img src="assets/serious-goose/hero-night-ops.png" alt="Serious Goose mascot standing in a foggy nighttime forest" />
+            <figcaption class="hero-status">
+              <strong>First drop active</strong>
+              <span>Core black graphics, midnight blue blanks, cold-weather fleece, and weatherproof stickers.</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="section" id="goods">
+          <div class="section-header">
+            <h2>Shop the Loadout</h2>
+            <p>
+              Everyday merch with the same nocturnal Serious Goose palette: black, graphite,
+              deep navy, cold steel, and a little signal green.
+            </p>
+          </div>
+          <div class="category-grid">
+            <a class="category-tile" href="#apparel">
+              <img src="assets/serious-goose/category-body-armor.png" alt="Dark tactical display used as an apparel category visual" />
+              <span class="tile-copy">
+                <h3>Apparel</h3>
+                <span>T-shirts, hoodies, fleece, and work layers</span>
+              </span>
+            </a>
+            <a class="category-tile" href="#desk">
+              <img src="assets/serious-goose/product-accessories-square.png" alt="Dark accessory flat lay with Serious Goose styling" />
+              <span class="tile-copy">
+                <h3>Desk Goods</h3>
+                <span>Mugs, notebooks, decals, and field notes</span>
+              </span>
+            </a>
+            <a class="category-tile" href="#skins">
+              <img src="assets/serious-goose/category-night-vision-optics.png" alt="Dark optics setup used as a mobile accessories category visual" />
+              <span class="tile-copy">
+                <h3>Device Skins</h3>
+                <span>Phone skins, laptop decals, and kit labels</span>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section shop-band" id="apparel">
+          <div class="section-header">
+            <h2>Current Drop</h2>
+            <p>Mock products for the launch grid, ready to swap for final product photography.</p>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product shirt"></span></div>
+              <div class="product-info">
+                <h3>Night Watch T-Shirt</h3>
+                <div class="price-row"><span>Black / graphite print</span><span class="price">$32</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product hoodie"></span></div>
+              <div class="product-info">
+                <h3>Fogline Sweatshirt</h3>
+                <div class="price-row"><span>Heavy fleece / navy</span><span class="price">$68</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card" id="desk">
+              <div class="product-art"><span class="mock-product mug"></span></div>
+              <div class="product-info">
+                <h3>Serious Issue Mug</h3>
+                <div class="price-row"><span>Matte ceramic / 14 oz</span><span class="price">$24</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product sticker"></span></div>
+              <div class="product-info">
+                <h3>Cold Trail Sticker Pack</h3>
+                <div class="price-row"><span>Weatherproof vinyl</span><span class="price">$12</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product notebook"></span></div>
+              <div class="product-info">
+                <h3>Night Notes Book</h3>
+                <div class="price-row"><span>Dot grid / field cover</span><span class="price">$18</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card" id="skins">
+              <div class="product-art"><span class="mock-product phone"></span></div>
+              <div class="product-info">
+                <h3>Midnight Phone Skin</h3>
+                <div class="price-row"><span>Textured vinyl</span><span class="price">$20</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product shirt"></span></div>
+              <div class="product-info">
+                <h3>Patrol Mark Long Sleeve</h3>
+                <div class="price-row"><span>Cold grey / sleeve print</span><span class="price">$42</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-art"><span class="mock-product notebook"></span></div>
+              <div class="product-info">
+                <h3>Evidence of Goose Journal</h3>
+                <div class="price-row"><span>Hardcover / black foil</span><span class="price">$28</span></div>
+                <button class="mini-button" type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="story">
+          <div class="feature-split">
+            <div class="feature-photo">
+              <img src="assets/serious-goose/about-mascot-patrol.png" alt="Serious Goose mascot patrolling a foggy forest trail at night" />
+            </div>
+            <div class="feature-copy">
+              <span class="eyebrow">Dead serious, questionably feathered</span>
+              <h2>Built for the midnight cart</h2>
+              <p>
+                Serious Goose starts with a tactical visual language and turns it into everyday
+                goods: clean prints, durable materials, subtle graphics, and a brand world that
+                feels like it just stepped out of the fog.
+              </p>
+              <a class="ghost-button" href="#access">View Access Policy</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="access">
+          <div class="section-header">
+            <h2>Access & Fulfillment</h2>
+            <p>
+              A storefront layout for public merch, limited professional goods, and future account
+              verification workflows.
+            </p>
+          </div>
+          <div class="trust-row">
+            <div class="trust-item">
+              <strong>Public merch</strong>
+              <p>T-shirts, sweatshirts, mugs, stickers, notebooks, and phone skins can be sold as the open launch collection.</p>
+            </div>
+            <div class="trust-item">
+              <strong>Restricted catalog</strong>
+              <p>Any future professional equipment can sit behind eligibility checks and account approval.</p>
+            </div>
+            <div class="trust-item">
+              <strong>Dark visual system</strong>
+              <p>Hero art, category imagery, and product surfaces share the same foggy nighttime palette.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Serious Goose Supply Co.</span>
+        <span>Mock ecommerce homepage · Static HTML prototype</span>
+      </footer>
+    </div>
+  </body>
+</html>
