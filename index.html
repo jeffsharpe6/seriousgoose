@@ -36,7 +36,8 @@
 
       body {
         margin: 0;
-        min-width: 320px;
+        min-width: 0;
+        overflow-x: hidden;
         background:
           linear-gradient(180deg, rgba(5, 7, 10, 0.82), rgba(5, 7, 10, 0.96)),
           url("assets/serious-goose/section-background-fog-forest.png") center top / cover fixed,
@@ -150,6 +151,7 @@
         font-size: 0.84rem;
         font-weight: 800;
         line-height: 1;
+        text-align: center;
         white-space: nowrap;
       }
 
@@ -168,7 +170,7 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(21rem, 1.05fr);
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
         gap: clamp(2rem, 4vw, 4.5rem);
         align-items: end;
         min-height: min(50rem, calc(100vh - 4.6rem));
@@ -230,6 +232,9 @@
       .hero-media {
         position: relative;
         align-self: stretch;
+        display: grid;
+        place-items: center;
+        aspect-ratio: 16 / 10;
         min-height: 30rem;
         overflow: hidden;
         border: 1px solid rgba(238, 243, 246, 0.14);
@@ -241,7 +246,9 @@
       .hero-media img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        padding: clamp(0.5rem, 2vw, 1.25rem);
       }
 
       .hero-media::after {
@@ -310,6 +317,7 @@
 
       .category-tile {
         position: relative;
+        display: block;
         min-height: 18rem;
         overflow: hidden;
         border: 1px solid var(--line);
@@ -501,7 +509,8 @@
       }
 
       .feature-photo {
-        min-height: 31rem;
+        aspect-ratio: 4 / 5;
+        min-height: 0;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 0.5rem;
@@ -511,7 +520,9 @@
       .feature-photo img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        padding: clamp(0.5rem, 2vw, 1.25rem);
       }
 
       .feature-copy {
@@ -544,7 +555,11 @@
 
       .source-frame {
         position: relative;
-        min-height: 24rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 2 / 3;
+        min-height: 0;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 0.5rem;
@@ -555,7 +570,9 @@
       .source-frame img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        padding: clamp(0.5rem, 2vw, 1rem);
       }
 
       .source-frame::after {
@@ -623,6 +640,7 @@
 
         .hero {
           min-height: auto;
+          align-items: start;
         }
 
         .hero-copy {
@@ -630,7 +648,8 @@
         }
 
         .hero-media {
-          min-height: 27rem;
+          min-height: 0;
+          aspect-ratio: 4 / 3;
         }
 
         .category-grid,
@@ -645,8 +664,13 @@
       }
 
       @media (max-width: 720px) {
+        body {
+          background-attachment: scroll;
+        }
+
         .nav {
-          align-items: flex-start;
+          align-items: center;
+          padding: 0.8rem 0.85rem;
         }
 
         .nav-links {
@@ -657,12 +681,72 @@
           display: none;
         }
 
+        .nav-actions .button {
+          min-height: 2.3rem;
+          padding: 0.65rem 0.72rem;
+          font-size: 0.76rem;
+        }
+
+        .brand {
+          gap: 0.55rem;
+        }
+
+        .brand-mark {
+          width: 2rem;
+          height: 2rem;
+          font-size: 0.68rem;
+        }
+
+        .brand-name {
+          font-size: 0.82rem;
+        }
+
+        .brand-sub {
+          font-size: 0.62rem;
+        }
+
+        .hero {
+          gap: 1.35rem;
+          padding: 2rem 0.85rem 1.6rem;
+        }
+
         h1 {
-          font-size: clamp(3.1rem, 17vw, 5.3rem);
+          max-width: 9ch;
+          font-size: clamp(3rem, 16vw, 4.8rem);
+        }
+
+        .eyebrow {
+          align-items: flex-start;
+          font-size: 0.72rem;
+        }
+
+        .eyebrow::before {
+          width: 1.5rem;
+          margin-top: 0.45rem;
+        }
+
+        .hero-copy p {
+          margin-top: 1rem;
+          font-size: 0.98rem;
+        }
+
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions .button,
+        .hero-actions .ghost-button {
+          width: 100%;
+          white-space: normal;
         }
 
         .section-header {
           display: grid;
+        }
+
+        .section {
+          padding: 2.5rem 0.85rem;
         }
 
         .product-grid {
@@ -672,7 +756,72 @@
         .hero-media,
         .feature-photo,
         .source-frame {
-          min-height: 22rem;
+          min-height: 0;
+          aspect-ratio: 2 / 3;
+        }
+
+        .hero-status {
+          right: 0.7rem;
+          bottom: 0.7rem;
+          left: 0.7rem;
+          max-width: none;
+          padding: 0.75rem;
+        }
+
+        .category-tile,
+        .category-tile img {
+          min-height: 15rem;
+        }
+
+        .feature-copy {
+          padding: 1.25rem 0;
+          border-block: 0;
+        }
+
+        .feature-copy h2 {
+          max-width: 10ch;
+          font-size: clamp(2.2rem, 13vw, 3.6rem);
+        }
+
+        .source-gallery {
+          margin-top: 1.25rem;
+        }
+
+        .source-frame figcaption {
+          right: 0.75rem;
+          bottom: 0.75rem;
+          left: 0.75rem;
+          font-size: 0.76rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .nav {
+          gap: 0.6rem;
+        }
+
+        .brand-sub {
+          display: none;
+        }
+
+        .nav-actions .button {
+          max-width: 6rem;
+          white-space: normal;
+        }
+
+        h1 {
+          font-size: clamp(2.7rem, 15vw, 3.6rem);
+        }
+
+        .hero-media,
+        .feature-photo,
+        .source-frame {
+          aspect-ratio: 2 / 3;
+        }
+
+        .product-art {
+          min-height: 11rem;
+          padding: 1rem;
         }
       }
     </style>
